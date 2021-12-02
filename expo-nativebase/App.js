@@ -10,7 +10,15 @@ import {
   NativeBaseProvider,
   extendTheme,
   VStack,
+  FormControl,
+  FormLabel,
+  Input,
+  FormHelperText,
+  Button,
+  Box,
   Code,
+  Stack,
+  WarningOutlineIcon,
 } from "native-base";
 import NativeBaseIcon from "./components/NativeBaseIcon";
 
@@ -26,28 +34,52 @@ export const theme = extendTheme({ config });
 export default function App() {
   return (
     <NativeBaseProvider>
-      <Center
-        _dark={{ bg: "blueGray.900" }}
-        _light={{ bg: "blueGray.50" }}
-        px={4}
-        flex={1}
-      >
-        <VStack space={5} alignItems="center">
-          <NativeBaseIcon />
-          <Heading size="lg">Welcome to NativeBase</Heading>
-          <HStack space={2} alignItems="center">
-            <Text>Edit</Text>
-            <Code>App.js</Code>
-            <Text>and save to reload.</Text>
-          </HStack>
-          <Link href="https://docs.nativebase.io" isExternal>
-            <Text color="primary.500" underline fontSize={"xl"}>
-              Learn NativeBase
-            </Text>
-          </Link>
-          <ToggleDarkMode />
-        </VStack>
-      </Center>
+      <Box _dark={{ bg: "gray.900" }} bg="white" h="100vh" w="100vw">
+        <ToggleDarkMode />
+        <Center w="100%" h="100vh" justifyContent="center" alignItems="center">
+          <Box bg="gray.100" w="25%" m="auto" p="30" borderRadius="4">
+            <Box w="100%" h="100%">
+              <FormControl>
+                <Stack mx="4">
+                  <FormControl.Label _dark={{ _text: { color: "gray.800" } }}>
+                    Email
+                  </FormControl.Label>
+                  <Input type="email" placeholder="Email" />
+                </Stack>
+              </FormControl>
+
+              <FormControl isRequired mt="8">
+                <Stack mx="4">
+                  <FormControl.Label _dark={{ _text: { color: "gray.800" } }}>
+                    Password
+                  </FormControl.Label>
+                  <Input type="password" placeholder="password" />
+                  <FormControl.HelperText>
+                    Must be atleast 6 characters.
+                  </FormControl.HelperText>
+                  <FormControl.ErrorMessage
+                    leftIcon={<WarningOutlineIcon size="xs" />}
+                  >
+                    Atleast 6 characters are required.
+                  </FormControl.ErrorMessage>
+                </Stack>
+              </FormControl>
+              <Center mt="8">
+                <Button
+                  type="submit"
+                  variant="outline"
+                  px="10"
+                  colorScheme="blue"
+                  mt="8"
+                  mx="auto"
+                >
+                  Submit
+                </Button>
+              </Center>
+            </Box>
+          </Box>
+        </Center>
+      </Box>
     </NativeBaseProvider>
   );
 }
@@ -57,7 +89,9 @@ function ToggleDarkMode() {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <HStack space={2} alignItems="center">
-      <Text>Dark</Text>
+      <Text _dark={{ color: "white" }} color="black">
+        Dark
+      </Text>
       <Switch
         isChecked={colorMode === "light" ? true : false}
         onToggle={toggleColorMode}

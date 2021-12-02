@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "crna-react-native",
+    "slug": "crna-react-native",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "crna-react-native"
+}

@@ -11,9 +11,7 @@ import {
   extendTheme,
   VStack,
   FormControl,
-  FormLabel,
   Input,
-  FormHelperText,
   Button,
   Box,
   Code,
@@ -23,7 +21,6 @@ import {
   Select,
   CheckIcon,
 } from "native-base";
-import NativeBaseIcon from "./components/NativeBaseIcon";
 
 // Define the config
 const config = {
@@ -76,6 +73,7 @@ export default function App() {
                   <Select
                     selectedValue={"ux"}
                     minWidth="200"
+                    //@ts-ignore
                     accessibilityLabel="Choose Service"
                     placeholder="Choose Service"
                     _selectedItem={{
@@ -99,6 +97,7 @@ export default function App() {
 
               <Center mt="8">
                 <Button
+                  //@ts-ignore
                   type="submit"
                   variant="outline"
                   px="10"

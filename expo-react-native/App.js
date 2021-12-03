@@ -1,6 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Button,
+  Picker,
+} from "react-native";
 
 export default function App() {
   return (
@@ -25,6 +32,19 @@ export default function App() {
             placeholder="Enter Password"
             textContentType="password"
           />
+          <Text style={{ color: "black", paddingBottom: "10px" }}>
+            Select a languge
+          </Text>
+          <Picker
+            selectedValue={"java"}
+            style={styles.input}
+            // onValueChange={(itemValue, itemIndex) =>
+            //   setSelectedValue(itemValue)
+            // }
+          >
+            <Picker.Item label="Java" value="java" />
+            <Picker.Item label="JavaScript" value="js" />
+          </Picker>
           <Button
             title="Submit"
             color="black"

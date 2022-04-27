@@ -1,0 +1,14 @@
+{
+  "colors": {
+    "primary": {
+      "500": "#cf5c2a"
+    }
+  },
+  "components": {
+    "Button": {
+      "baseStyle": {
+        "pt": "3"
+      }
+    }
+  }
+}
